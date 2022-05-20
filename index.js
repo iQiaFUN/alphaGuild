@@ -8,9 +8,9 @@ const Lang = require('./Lang');
 const langhelper = new Lang('lang.ini');
 const mobs = require('./mobs.json');
 const cmd = {
-    addMgr:"绑定管理子频道",
-    addMain:"绑定Main子频道",
-    addChat:"绑定聊天子频道"
+    addMgr:"绑定Mgr",
+    addMain:"绑定Main",
+    addChat:"绑定Chat"
 }
 let client = NIL.bots.getBot(vcfg.self_id)
 let app = GuildApp.bind(client);
