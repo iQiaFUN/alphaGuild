@@ -16,7 +16,7 @@ function SendText(ser,text){
 function onChat(e) {
     if(NIL._alpha.chat_exists(e.channel_id)){
         let ser = NIL._alpha.getSer(e.channel_id);
-        SendText(ser,langhelper.get('GROUP_MEMBER_CHAT',e.sender.nickname, GetFormatText(e)));
+        SendText(ser,langhelper.get('GUILD_MEMBER_CHAT',e.sender.nickname, GetFormatText(e)));
     }
     //SendTextAll(langhelper.get('GROUP_MEMBER_CHAT',e.sender.nickname, GetFormatText(e)));
 }
