@@ -125,17 +125,14 @@ class iQiaGuild extends NIL.ModuleBase{
                 } 
             }
             if(e.guild_id == cfg.guild_id){
-                switch(e.channel_id){
-                    case cfg.channel.manager:
-                        NIL.EventManager.on('onMgrChannelMsgReceived',e)
-                        break;
-                    case cfg.channel.main:
-                        NIL.EventManager.on('onMainChannelMsgReceived',e)
-                        break;
-                    default:
-                        if(chat_exists(e.channel_id)){
-                            NIL.EventManager.on('onChatChannelMsgReceived',e)
-                        }
+                if(cfg.channel.manager == e.channel_id){
+                    NIL.EventManager.on('onMgrChannelMsgReceived',e)
+                }    
+                if(cfg.channel.main == e.channel_id){
+                    NIL.EventManager.on('onMainChannelMsgReceived',e)
+                }    
+                if(chat_exists(e.channel_id)){
+                    NIL.EventManager.on('onChatChannelMsgReceived',e)
                 }
             }
         });
