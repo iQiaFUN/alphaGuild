@@ -1,14 +1,24 @@
 const Lang = require('./Lang');
 const langhelper = new Lang('lang.ini');
 
-function SendTextAll(text) {
+// function SendTextAll(text) {
+//     NIL.SERVERS.forEach((s, k) => {
+//         s.sendText(text);
+//     });
+// }
+function SendText(ser,text){
     NIL.SERVERS.forEach((s, k) => {
-        s.sendText(text);
+        if(ser == k){
+            s.sendText(text);
+        }
     });
 }
-
 function onChat(e) {
-    SendTextAll(langhelper.get('GROUP_MEMBER_CHAT',e.sender.nickname, GetFormatText(e)));
+    if(NIL._alpha.chat_exists(e.channel_id)){
+        let ser = NIL._alpha.getSer(e.channel_id);
+        SendText(ser,langhelper.get('GROUP_MEMBER_CHAT',e.sender.nickname, GetFormatText(e)));
+    }
+    //SendTextAll(langhelper.get('GROUP_MEMBER_CHAT',e.sender.nickname, GetFormatText(e)));
 }
 
 var GetFormatText = function (e) {

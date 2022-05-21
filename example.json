@@ -4,7 +4,6 @@
 	"guild_id": "114514",
 	"channel": {
 		"main": "114514",
-		"chat": "114514",
 		"manager": "114514"
 	},
 	"admin": []
