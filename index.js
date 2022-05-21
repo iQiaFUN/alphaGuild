@@ -141,7 +141,7 @@ class iQiaGuild extends NIL.ModuleBase{
         api.listen('onChatChannelMsgReceived',e=>onChat(e));
 
         api.listen('onMgrChannelMsgReceived',e=>{
-            console.log(JSON.stringify(e))
+            //console.log(JSON.stringify(e))
         });
         if(cfg.guild_id != '114514'){
             api.listen('onWebsocketReceived', (dt) => {
